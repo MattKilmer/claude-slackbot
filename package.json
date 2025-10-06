@@ -1,0 +1,40 @@
+{
+  "name": "claude-autofix-bot",
+  "version": "1.0.0",
+  "description": "Automated code fixing via Slack → Claude Agent → Git PR → Deploy",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src api --ext .ts",
+    "test": "vitest",
+    "deploy": "vercel --prod",
+    "postinstall": "npm run build"
+  },
+  "keywords": ["slack", "claude", "automation", "ci-cd", "ai", "devops"],
+  "author": "Matt Kilmer",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@octokit/rest": "^21.0.2",
+    "@slack/web-api": "^7.8.0",
+    "@vercel/node": "^3.2.17",
+    "dotenv": "^16.4.7",
+    "simple-git": "^3.27.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.6",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "eslint": "^9.17.0",
+    "typescript": "^5.7.2",
+    "vercel": "^39.2.0",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
